@@ -1,0 +1,22 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "description": "\"# test\"",
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SendLessLove/test.git"
+  },
+  "author": "yusin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SendLessLove/test/issues"
+  },
+  "homepage": "https://github.com/SendLessLove/test#readme",
+  "devDependencies": {
+    "webpack": "^2.3.3"
+  }
+}
