@@ -11,7 +11,6 @@ module.exports = {
   module: {
     rules: [
       {
-        // test: /.\js?$/,
         test: /\.less$/,
         include: [
           path.resolve(__dirname, "src/less")

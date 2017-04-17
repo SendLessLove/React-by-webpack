@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import '../../less/app.less';
-class Header extends React.Component {
+
+export default class Header extends React.Component {
   render() {
     return (
       <nav className="nav">
@@ -11,5 +11,3 @@ class Header extends React.Component {
     );
   }
 }
-
-export default Header;
