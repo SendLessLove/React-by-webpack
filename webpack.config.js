@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   entry: "./src/js/index",
@@ -10,7 +11,19 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /.\js?$/,
+        // test: /.\js?$/,
+        test: /\.less$/,
+        include: [
+          path.resolve(__dirname, "src/less")
+        ],
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: ['css-loader', 'less-loader']
+        })
+      },
+      {
+        // test: /.\js?$/,
+        test: /\.(js|jsx)$/,
         include: [
           path.resolve(__dirname, "src/js")
         ],
@@ -25,6 +38,9 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "index.html",
       filename: "test.html"
+    }),
+    new ExtractTextPlugin({
+     filename: 'style.css'
     })
   ]
 }
