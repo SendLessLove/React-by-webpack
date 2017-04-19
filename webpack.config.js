@@ -14,7 +14,7 @@ module.exports = {
       {
         test: /\.less$/,
         include: [
-          path.resolve(__dirname, "src/less")
+          path.resolve(__dirname, "src/css")
         ],
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
@@ -40,7 +40,7 @@ module.exports = {
       filename: "test.html"
     }),
     new ExtractTextPlugin({
-     filename: 'style.css'
+     filename: 'css/style.css'
     }),
     new webpack.optimize.UglifyJsPlugin()
   ]
