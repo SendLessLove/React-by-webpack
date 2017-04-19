@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SendLessLove/test.git"
+    "url": "https://github.com/SendLessLove/React-by-webpack.git"
   },
   "author": "yusin",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/SendLessLove/test/issues"
+    "url": "https://github.com/SendLessLove/React-by-webpack/issues"
   },
-  "homepage": "https://github.com/SendLessLove/test#readme",
+  "homepage": "https://github.com/SendLessLove/React-by-webpack#readme",
   "devDependencies": {
     "babel": "^6.23.0",
     "babel-core": "^6.24.1",
@@ -26,10 +26,12 @@
     "babel-preset-react": "^6.24.1",
     "css-loader": "^0.28.0",
     "extract-text-webpack-plugin": "^2.1.0",
+    "file-loader": "^0.11.1",
     "html-webpack-plugin": "^2.28.0",
     "less": "^2.7.2",
     "less-loader": "^4.0.3",
     "style-loader": "^0.16.1",
+    "url-loader": "^0.5.8",
     "webpack": "^2.3.3"
   },
   "dependencies": {

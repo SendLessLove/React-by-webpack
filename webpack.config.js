@@ -31,8 +31,17 @@ module.exports = {
           path.resolve(__dirname, "node_modules")
         ],
         loader: "babel-loader"
+      },
+      {
+        test: /\.(png|jpg|gif|woff|woff2|svg)$/,
+        loaders: [
+          'url-loader?limit=10000&name=[hash:8].[name].[ext]',
+        ]
       }
     ]
+  },
+  resolve: {
+    extensions: [' ', '.js', '.jsx'],
   },
   plugins: [
     new HtmlWebpackPlugin({
