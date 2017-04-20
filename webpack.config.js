@@ -7,7 +7,7 @@ module.exports = {
   entry: "./src/js/index",
   output: {
     path: path.resolve(__dirname, "dist"),
-    filename: 'js/bundle.js'
+    filename: 'js/[name].js'
   },
   module: {
     rules: [
@@ -41,7 +41,7 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: [' ', '.js', '.jsx'],
+    extensions: [' ', '.js', '.jsx', '.less', '.scss'],
   },
   plugins: [
     new HtmlWebpackPlugin({
