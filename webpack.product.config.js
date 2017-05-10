@@ -22,7 +22,6 @@ module.exports = {
         })
       },
       {
-        // test: /.\js?$/,
         test: /\.(js|jsx)$/,
         include: [
           path.resolve(__dirname, "src/js")
@@ -46,7 +45,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: "index.html",
-      filename: "test.html"
+      filename: "index.html"
     }),
     new ExtractTextPlugin({
      filename: 'css/style.css'

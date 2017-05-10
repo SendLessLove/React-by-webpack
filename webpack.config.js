@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const OpenBrowserPlugin = require('open-browser-webpack-plugin');
 
 module.exports = {
   entry: "./src/js/index",
@@ -22,7 +23,6 @@ module.exports = {
         })
       },
       {
-        // test: /.\js?$/,
         test: /\.(js|jsx)$/,
         include: [
           path.resolve(__dirname, "src/js")
@@ -44,18 +44,19 @@ module.exports = {
     extensions: [' ', '.js', '.jsx', '.less', '.scss'],
   },
   devServer: {
-    // contentBase: path.join(__dirname, "dist"),
+    contentBase: path.join(__dirname, "dist"),
     compress: true,
     port: 9000
   },
   plugins: [
+    new OpenBrowserPlugin({ url: 'http://localhost:9000' }), // 自动打开端口
     new HtmlWebpackPlugin({
       template: "index.html",
-      filename: "test.html"
+      filename: "index.html"
     }),
     new ExtractTextPlugin({
      filename: 'css/style.css'
     }),
-    new webpack.optimize.UglifyJsPlugin()
+    new webpack.optimize.UglifyJsPlugin() // 代码丑化
   ]
 }
