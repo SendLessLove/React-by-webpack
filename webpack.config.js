@@ -7,10 +7,13 @@ const OpenBrowserPlugin = require('open-browser-webpack-plugin');
 require('./postcss.config.js');
 
 module.exports = {
-  entry: './src/js/index',
+  entry: {
+    vendor: ["react"],
+    app: "./src/js/index"
+  },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'js/[name].js'
+    filename: 'js/[name].[chunkhash].js'
   },
   module: {
     rules: [
@@ -60,7 +63,7 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: [' ', '.js', '.jsx', 'css', '.less', '.scss'],
+    extensions: [' ', '.js', '.jsx', '.less', '.scss'],
   },
   devServer: {
     contentBase: path.join(__dirname, "dist"),
@@ -68,13 +71,17 @@ module.exports = {
     port: 9000
   },
   plugins: [
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor',
+      filename: 'vendor.min.js',
+    }), // 提取公共文件
     new OpenBrowserPlugin({ url: 'http://localhost:9000' }), // 自动打开端口
     new HtmlWebpackPlugin({
       template: "index.html",
       filename: "index.html"
     }),
     new ExtractTextPlugin({
-     filename: 'css/style.css'
+     filename: 'css/index.css'
     }),
     new webpack.optimize.UglifyJsPlugin() // 代码丑化
   ]
