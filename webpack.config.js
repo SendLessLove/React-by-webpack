@@ -4,18 +4,33 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const OpenBrowserPlugin = require('open-browser-webpack-plugin');
 
+require('./postcss.config.js');
+
 module.exports = {
-  entry: "./src/js/index",
+  entry: './src/js/index',
   output: {
-    path: path.resolve(__dirname, "dist"),
+    path: path.resolve(__dirname, 'dist'),
     filename: 'js/[name].js'
   },
   module: {
     rules: [
       {
+        test: /\.css$/,
+        include: [
+          path.resolve(__dirname, 'src/css')
+        ],
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [
+            { loader: 'css-loader', options: { importLoaders: 1 } },
+            'postcss-loader'
+          ]
+        })
+      },
+      {
         test: /\.less$/,
         include: [
-          path.resolve(__dirname, "src/css")
+          path.resolve(__dirname, 'src/css')
         ],
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
@@ -25,12 +40,12 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         include: [
-          path.resolve(__dirname, "src/js")
+          path.resolve(__dirname, 'src/js')
         ],
         exclude: [
           path.resolve(__dirname, "node_modules")
         ],
-        loader: "babel-loader"
+        loader: 'babel-loader'
       },
       {
         test: /\.(png|jpg|gif|woff|woff2|svg)$/,
@@ -41,7 +56,7 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: [' ', '.js', '.jsx', '.less', '.scss'],
+    extensions: [' ', '.js', '.jsx', 'css', '.less', '.scss'],
   },
   devServer: {
     contentBase: path.join(__dirname, "dist"),
