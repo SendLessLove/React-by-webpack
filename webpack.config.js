@@ -43,6 +43,11 @@ module.exports = {
   resolve: {
     extensions: [' ', '.js', '.jsx', '.less', '.scss'],
   },
+  devServer: {
+    // contentBase: path.join(__dirname, "dist"),
+    compress: true,
+    port: 9000
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: "index.html",
