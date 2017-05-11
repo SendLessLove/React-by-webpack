@@ -68,12 +68,6 @@ module.exports = {
     port: 9000
   },
   plugins: [
-    /*
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor',
-      filename: 'vendor.min.js',
-    }), // 提取公共文件
-    */
     new OpenBrowserPlugin({ url: 'http://localhost:9000' }), // 自动打开端口
     new HtmlWebpackPlugin({
       template: "index.html",
