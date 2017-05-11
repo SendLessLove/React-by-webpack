@@ -10,6 +10,7 @@ module.exports = {
   entry: './src/js/index',
   output: {
     path: path.resolve(__dirname, 'dist'),
+    publicPath: '/',
     filename: 'js/[name].[chunkhash].js'
   },
   module: {
@@ -74,7 +75,8 @@ module.exports = {
       filename: "index.html"
     }),
     new ExtractTextPlugin({
-     filename: 'css/index.css'
+     filename: 'css/[name].[hash].css'
     }),
+    new webpack.BannerPlugin("Copyright yusin...")
   ]
 }

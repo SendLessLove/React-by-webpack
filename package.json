@@ -2,7 +2,7 @@
   "name": "test",
   "version": "1.0.0",
   "description": "\"# test\"",
-  "main": "webpack.config.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "set NODE_ENV=dev && webpack-dev-server --progress --colors",

@@ -67,15 +67,16 @@ module.exports = {
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
-      filename: 'vendor.min.js',
+      filename: 'js/vendor.min.js',
     }), // 提取公共文件
     new HtmlWebpackPlugin({
       template: "index.html",
       filename: "index.html"
     }),
     new ExtractTextPlugin({
-     filename: 'css/index.css'
+     filename: 'css/[name].[hash].css'
     }),
+    new webpack.BannerPlugin("Copyright yusin..."),
     new webpack.optimize.UglifyJsPlugin()
   ]
 }
