@@ -1,12 +1,12 @@
-# React Webpack2 脚手架示例
-# 一个简单的todolist
-## 环境配置
+## React + Webpack2 写一个简单的todolist
 
-安装 Node.js git
+### 环境配置
+
+安装 Node.js Git
 
 ### 安装开发依赖
-1. 克隆或下载本项目；
-2. 进入项目目录，执行 `npm install`；
+1. 克隆或下载本项目
+2. 进入项目目录，执行 `npm install`
 
 ### 开发
 ```
