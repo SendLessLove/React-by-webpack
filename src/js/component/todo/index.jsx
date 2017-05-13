@@ -1,20 +1,42 @@
 import React, { Component } from 'react';
 
-// import Dog from '/src/img/big_dog.jpg';
+// import Dog from '../../../img/big_dog.jpg';
+import Input from './subpage/input.jsx';
+import List from './subpage/list.jsx';
 
-export default class Header extends React.Component {
+export default class Todo extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      todos: []
+    };
+  }
+  submitFn(value) {
+    const id = this.state.todos.length;
+    console.log(id);
+    this.setState({
+      todos: this.state.todos.concat({
+        id,
+        text: value
+      }),
+    });
+  }
+  delFun(text) {
+    const data = this.state.todos;
+    this.setState({
+      todos: data.filter(item => {
+        if(item.id !== text) {
+          return item
+        }
+      })
+    })
+  }
   render() {
+    console.log(this.state.todos);
     return (
       <div>
-        <nav className="nav">
-          <a href="http://www.baidu.com">baidu</a>
-          <a href="http://www.github.com">github</a>
-          <a href="#">{this.props.name}..</a>
-        </nav>
-        <div className="test">
-          <span className="loading"></span>
-          {/* <img src={Dog} alt="" /> */}
-        </div>
+        <Input submitFn={this.submitFn.bind(this)}/>
+        <List todos={this.state.todos} delFun={this.delFun.bind(this)}/>
       </div>
     );
   }

@@ -3,8 +3,6 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-require('./postcss.config.js');
-
 module.exports = {
   entry: {
     vendor: ["react"],
