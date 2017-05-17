@@ -1,10 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
-import Todo from './component/todo/index';
-import '../css/app';
-import '../css/test.css';
+import Todo from './component/todo';
+import '../css/app.less';
 
 ReactDOM.render(
-  <Todo name="etc" />,
+  <Todo />,
   document.getElementById('root')
 );
