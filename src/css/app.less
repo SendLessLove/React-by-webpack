@@ -1,39 +1,82 @@
 html, body {
   margin: 0;
   padding: 0;
+  height: 100%;
 
-  .nav {
-    background: #f9f9f9;
-    padding: 10px 0;
-    a {
-      color: #999;
-      margin: 0 5px;
-      text-decoration: none;
+  #root {
+    height: 100%;
+  }
+}
 
-      &:hover {
-      	text-decoration: underline;
-      	color: orange;
+#todo {
+  height: 100%;
+  font-family: "Micorsoft Yahei";
+  background-image: url(../img/todoBG.jpg);
+
+  .addTodoBox {
+    width: 532px;
+    margin: 0px auto 5px;
+    & > input[type=text] {
+      width: 430px;
+      padding: 0 2px;
+      height: 34px;
+      line-height: 34px;
+      margin-top: 32px;
+      text-indent: 10px;
+      border: 1px solid #9c9b9b;
+      border-right: none;
+      background-color: #fff;
+      opacity: .7;
+      font-size: 16px;
+
+      &.on {
+        opacity: 1;
+      }
+    }
+    & > input[type=submit] {
+      width: 96px;
+      height: 36px;
+      line-height: 36px;
+      padding: 0 6px;
+      border: 1px solid #9c9b9b;
+      background: #3388FF;
+      color: #fff;
+      opacity: .7;
+
+      &.on {
+        opacity: 1;
       }
     }
   }
-  .test {
-    margin-top: 10px;
-    .loading {
-      height: 200px;
-      width: 250px;
-      display: inline-block;
-      background-image: url(../img/big_dog.jpg);
-      background-repeat: no-repeat;
-      background-size: 100% 100%;
-      filter: blur(2px); 
-    }
 
-    & > img {
-      display: flex;
-      transition: 0.3s ease;
+  .list-content {
+    width: 532px;
+    margin: 0 auto;
+    padding-left: 0;
+    background: #fff;
+
+    & > li {
+      list-style: none;
+      font-size: 16px;
+      padding: 0 10px;
+      cursor: pointer;
+      height: 30px;
+      line-height: 30px;
 
       &:hover {
-        transform: scale(1.2);
+        background: #eee;
+      }
+      .list-text {
+        width: 460px;
+        display: inline-block;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+      .delBtn {
+        float: right;
+        color: #888;
+        user-select: none;
       }
     }
   }

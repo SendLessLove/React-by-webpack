@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
-// import Dog from '../../../img/big_dog.jpg';
-import Input from './subpage/input.jsx';
+import AddBox from './subpage/addBox.jsx';
 import List from './subpage/list.jsx';
 
 export default class Todo extends React.Component {
@@ -10,6 +9,14 @@ export default class Todo extends React.Component {
     this.state = {
       todos: []
     };
+  }
+  componentDidMount() {
+    if(localStorage.todolist) {
+      const getTODO = JSON.parse(localStorage.getItem('todolist'));
+      this.setState({
+        todos: getTODO,
+      });
+    }
   }
 
   // 提交todo list
@@ -20,6 +27,9 @@ export default class Todo extends React.Component {
         id,
         text: value
       }),
+    }, () => {
+      const localTodo = JSON.stringify(this.state.todos)
+      localStorage.setItem('todolist', localTodo);
     });
   }
 
@@ -32,13 +42,16 @@ export default class Todo extends React.Component {
           return item
         }
       })
+    }, () => {
+      const localTodo = JSON.stringify(this.state.todos)
+      localStorage.setItem('todolist', localTodo);
     })
   }
 
   render() {
     return (
-      <div>
-        <Input submitFn={this.submitFn.bind(this)}/>
+      <div id="todo">
+        <AddBox submitFn={this.submitFn.bind(this)}/>
         <List todos={this.state.todos} delFun={this.delFun.bind(this)}/>
       </div>
     );
