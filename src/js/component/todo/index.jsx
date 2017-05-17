@@ -11,9 +11,10 @@ export default class Todo extends React.Component {
       todos: []
     };
   }
+
+  // 提交todo list
   submitFn(value) {
     const id = this.state.todos.length;
-    console.log(id);
     this.setState({
       todos: this.state.todos.concat({
         id,
@@ -21,6 +22,8 @@ export default class Todo extends React.Component {
       }),
     });
   }
+
+  // 删除操作
   delFun(text) {
     const data = this.state.todos;
     this.setState({
@@ -31,8 +34,8 @@ export default class Todo extends React.Component {
       })
     })
   }
+
   render() {
-    console.log(this.state.todos);
     return (
       <div>
         <Input submitFn={this.submitFn.bind(this)}/>

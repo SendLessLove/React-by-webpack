@@ -20,6 +20,7 @@ export default class Input extends React.Component {
       this.setState({ value: '' });
     }
   }
+
   render() {
     return (
       <input
