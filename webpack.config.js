@@ -73,7 +73,7 @@ module.exports = {
       filename: "index.html"
     }),
     new ExtractTextPlugin({
-     filename: 'css/[name].[hash].css'
+      filename: 'css/[name].[hash].css'
     }),
     new webpack.BannerPlugin("Copyright yusin...")
   ]
